@@ -14,8 +14,7 @@ db.generate_mapping(create_tables=True)
 
 class Todos(rest.Resource):
     def get(self):
-        """Will give you all the todo items"""
-
+        
         with orm.db_session:
             return {
                 item.id: {
@@ -30,11 +29,10 @@ import json
 
 from flask import Flask, request
 import flask.ext.restful as rest
-    "data": "Buy Milk!",
-    "tags": ["work", "high"]
+    "data": "Eat Fish!",
+    "tags": ["Animal", "Sea"]
 
 def put(self):
-    """Payload contains information to create new todo item"""
 
     info = json.loads(request.data)
 
