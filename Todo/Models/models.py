@@ -1,22 +1,22 @@
-from pony import orm  # 1
+from pony import orm
 
-db = orm.Database()  # 2
+db = orm.Database()
 
 
-class Todo(db.Entity):  # 3
+class Todo(db.Entity):
 
-    _table_ = 'Todos' # 4
+    _table_ = 'Todos'
 
-    data = orm.Required(unicode)  # 5
-    tags = orm.Set("Tag")  # 6
+    data = orm.Required(unicode)
+    tags = orm.Set("Tag")
 
 
 class Tag(db.Entity):
 
     _table_ = 'Tags'
 
-    name = orm.Required(unicode, unique=True)  # 7
-    tags = orm.Set("Todo") # 8
+    name = orm.Required(unicode, unique=True)
+    tags = orm.Set("Todo")
 
 @property
 def url(self):
